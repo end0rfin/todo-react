@@ -6,7 +6,7 @@ import "./styles.scss";
 export const TodoInputForm = () => {
   const { state, dispatch } = useTodoContext();
   const newTodoId = useId();
-  const { value, onChange, onBlur, error } = useInput("", false);
+  const { value, onBlur, error } = useInput("", false);
   const inputValue = state.newTodoValue || value;
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) =>

@@ -3,7 +3,7 @@ import { ActionTypes, useTodoContext } from "../../hooks/useTodoContext";
 
 export const TodoList = () => {
   const {
-    state: { todoList, filterBy },
+    state: { todoList },
     dispatch,
   } = useTodoContext();
   const [filteredTodoList, setFilteredTodoList] = useState([]);
