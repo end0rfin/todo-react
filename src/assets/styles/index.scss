@@ -1,4 +1,5 @@
 @import "fonts";
+@import "colors";
 
 html,
 body,
@@ -13,8 +14,18 @@ body {
   background-color: darkgray;
 }
 
+.todo-app-container {
+  width: 100vw;
+  height: 100vh;
+  &.mood {
+    background-color: $mood-light;
+  }
+  &.warm {
+    background-color: $warm-light;
+  }
+}
+
 .todo-app {
   margin: auto;
-  margin-top: 10%;
   max-width: 500px;
 }

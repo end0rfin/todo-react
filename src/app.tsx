@@ -13,17 +13,19 @@ export const App = () => {
   const suspenseFallback = () => <div>Загрузка списка</div>;
 
   return (
-    <div className="todo-app">
-      <Header />
-      <Suspense fallback={suspenseFallback()}>
-        <TodoProvider>
-          <TodoInputForm />
-          <TodoList />
-          <TodoFooter />
-          <button onClick={toggleTheme}>Сменить тему</button>
-          Текущая тема: {theme}
-        </TodoProvider>
-      </Suspense>
+    <div className={`todo-app-container ${theme}`}>
+      <div className="todo-app">
+        <Header />
+        <Suspense fallback={suspenseFallback()}>
+          <TodoProvider>
+            <TodoInputForm />
+            <TodoList />
+            <TodoFooter />
+            <button onClick={toggleTheme}>Сменить тему</button>
+            Текущая тема: {theme}
+          </TodoProvider>
+        </Suspense>
+      </div>
     </div>
   );
 };
