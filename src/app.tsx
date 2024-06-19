@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { Header } from "./components/header";
 import { TodoFooter } from "./components/todo-footer";
@@ -9,16 +10,20 @@ import { TodoProvider } from "./hooks/useTodoContext";
 export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
+  const suspenseFallback = () => <div>Загрузка списка</div>;
+
   return (
     <div className="todo-app">
       <Header />
-      <TodoProvider>
-        <TodoInputForm />
-        <TodoList />
-        <TodoFooter />
-        <button onClick={toggleTheme}>Сменить тему</button>
-        Текущая тема: {theme}
-      </TodoProvider>
+      <Suspense fallback={suspenseFallback()}>
+        <TodoProvider>
+          <TodoInputForm />
+          <TodoList />
+          <TodoFooter />
+          <button onClick={toggleTheme}>Сменить тему</button>
+          Текущая тема: {theme}
+        </TodoProvider>
+      </Suspense>
     </div>
   );
 };
