@@ -1,5 +1,9 @@
 # Изменения
 
+## Версия 0.0.3
+
+- Добавлен шаблон для pull request`а.
+
 ## Версия 0.0.2
 
 - Добавлены основные компоненты: Header, TodoInputForm, TodoList, TodoFooter. 
