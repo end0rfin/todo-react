@@ -1,0 +1,20 @@
+@import "fonts";
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: $font-family;
+  line-height: 1.43;
+  background-color: darkgray;
+}
+
+.todo-app {
+  margin: auto;
+  margin-top: 10%;
+  max-width: 500px;
+}
