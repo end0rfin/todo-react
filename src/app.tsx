@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { Header } from "./components/header";
 import { TodoFooter } from "./components/todo-footer";

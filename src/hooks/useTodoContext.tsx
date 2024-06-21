@@ -1,4 +1,4 @@
-import {
+import React, {
   ReactNode,
   createContext,
   useContext,
@@ -59,7 +59,7 @@ const todoReducer = (state: State, action: Action): State => {
   const newTodoId = new Date().valueOf();
 
   switch (action.type) {
-    case ActionTypes.setTodoListStore:
+    case ActionTypes.setTodoListStore: {
       updateLocalStorageTodoList(action.payload.todoListStore);
 
       return {
@@ -67,7 +67,8 @@ const todoReducer = (state: State, action: Action): State => {
         todoListStore: action.payload.todoListStore,
         todoList: action.payload.todoListStore,
       };
-    case ActionTypes.setFilterBy:
+    }
+    case ActionTypes.setFilterBy: {
       let updatedTodoList = state.todoListStore;
 
       if (
@@ -85,12 +86,14 @@ const todoReducer = (state: State, action: Action): State => {
         filterBy: action.payload.filterBy,
         todoList: updatedTodoList,
       };
-    case ActionTypes.setNewTodo:
+    }
+    case ActionTypes.setNewTodo: {
       return {
         ...state,
         newTodoValue: action.payload.newTodoValue,
       };
-    case ActionTypes.addNewTodo:
+    }
+    case ActionTypes.addNewTodo: {
       const newTodo: TodoItem = {
         id: newTodoId,
         state: TodoStates.ACTIVE,
@@ -105,7 +108,8 @@ const todoReducer = (state: State, action: Action): State => {
         todoListStore: [...state.todoListStore, newTodo],
         newTodoValue: "",
       };
-    case ActionTypes.toggleTodoState:
+    }
+    case ActionTypes.toggleTodoState: {
       const toggledTodoList = state.todoList.map((todo) => {
         if (todo.id === action.payload.updateTodoId) {
           todo.state =
@@ -124,7 +128,8 @@ const todoReducer = (state: State, action: Action): State => {
         todoListStore: toggledTodoList,
         newTodoValue: "",
       };
-    case ActionTypes.removeTodo:
+    }
+    case ActionTypes.removeTodo: {
       const removedTodoList = state.todoList.filter(
         (todo) => todo.id !== action.payload.updateTodoId,
       );
@@ -137,7 +142,8 @@ const todoReducer = (state: State, action: Action): State => {
         todoListStore: removedTodoList,
         newTodoValue: "",
       };
-    case ActionTypes.removeAllCompleted:
+    }
+    case ActionTypes.removeAllCompleted: {
       const removedAllTodoList = state.todoList.filter(
         (todo) => todo.state !== "COMPLETED",
       );
@@ -150,6 +156,7 @@ const todoReducer = (state: State, action: Action): State => {
         todoListStore: removedAllTodoList,
         newTodoValue: "",
       };
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
