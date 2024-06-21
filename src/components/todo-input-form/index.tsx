@@ -1,4 +1,4 @@
-import { useId, ChangeEvent, FormEvent } from "react";
+import React, { useId, ChangeEvent, FormEvent } from "react";
 import { useInput } from "../../hooks/useInput";
 import { ActionTypes, useTodoContext } from "../../hooks/useTodoContext";
 import "./styles.scss";
