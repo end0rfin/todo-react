@@ -1,5 +1,9 @@
-@import "fonts";
-@import "colors";
+@import "fonts.scss";
+@import "colors.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body,
