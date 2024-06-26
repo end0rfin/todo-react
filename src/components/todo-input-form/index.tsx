@@ -24,7 +24,7 @@ export const TodoInputForm = () => {
   return (
     <form className="todo-input-form" onSubmit={onSubmit}>
       <input
-        className="todo-input"
+        className="todo-input text"
         placeholder="What need to be done?"
         value={inputValue}
         onChange={onInputChange}
