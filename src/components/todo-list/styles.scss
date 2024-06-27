@@ -1,0 +1,48 @@
+@import "../../assets/styles/mixins.scss";
+
+.todo-list-item {
+  display: flex;
+  align-items: center;
+  height: 55px;
+  gap: 10px;
+  padding: 0 16px;
+
+  font-size: 1.5em;
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+
+  @include border-todo-list-item;
+
+  .remove-todo-item {
+    display: none;
+    height: 24px;
+    padding: 0 8px;
+
+
+    font-size: 1rem;
+    color: gray;
+    font-weight: 100;
+    font-style: normal;
+
+    @apply rounded-s;
+    @include border-toggle-todo-state-button;
+  }
+
+  &:hover {
+    .remove-todo-item {
+      display: block;
+    }
+  }
+}
+
+.toggle-todo-state-button {
+  @include border-toggle-todo-state-button;
+  width: 24px;
+  height: 24px;
+  @apply rounded-3xl;
+
+  &.COMPLETED {
+    @apply border-0;
+  }
+}

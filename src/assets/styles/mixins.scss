@@ -1,0 +1,11 @@
+@mixin border-todo-container {
+  border: 2px solid #b6b4b4;
+}
+
+@mixin border-todo-list-item {
+  border: 1px solid #b6b4b4;
+}
+
+@mixin border-toggle-todo-state-button {
+  border: 2px solid #b6b4b4;
+}

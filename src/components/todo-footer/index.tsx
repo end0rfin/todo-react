@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ActionTypes,
   TodoStates,
   useTodoContext,
 } from "../../hooks/useTodoContext";
+import "./styles.scss";
 
 export const TodoFooter = () => {
   const {
-    state: { todoListStore },
+    state: { todoListStore, filterBy },
     dispatch,
   } = useTodoContext();
 
-  const todoListCount = todoListStore ? todoListStore.length : 0;
+  const [activeTodoCount, setActiveTodoCount] = useState(0);
+
+  useEffect(() => {
+    if (todoListStore?.length) {
+      const activeTodos = todoListStore.filter(
+        (todo) => todo.state === TodoStates.ACTIVE,
+      );
+
+      setActiveTodoCount(activeTodos.length);
+    }
+  }, [todoListStore]);
 
   const handleFilterClick = (state: TodoStates) =>
     dispatch({ type: ActionTypes.setFilterBy, payload: { filterBy: state } });
@@ -20,19 +31,30 @@ export const TodoFooter = () => {
     dispatch({ type: ActionTypes.removeAllCompleted });
 
   return (
-    <div>
-      Активных задач: {todoListCount}
-      <button onClick={() => handleFilterClick(TodoStates.ALL)}>
-        filterBy ALL
-      </button>
-      <button onClick={() => handleFilterClick(TodoStates.ACTIVE)}>
-        filterBy ACTIVE
-      </button>
-      <button onClick={() => handleFilterClick(TodoStates.COMPLETED)}>
-        filterBy COMPLETED
-      </button>
+    <div className="todo-footer">
+      <div>Активных задач: {activeTodoCount}</div>
+      <div>
+        <button
+          onClick={() => handleFilterClick(TodoStates.ALL)}
+          className={`filter-button ${!filterBy || filterBy === TodoStates.ALL ? "active" : null}`}
+        >
+          Все
+        </button>
+        <button
+          onClick={() => handleFilterClick(TodoStates.ACTIVE)}
+          className={`filter-button ${filterBy === TodoStates.ACTIVE ? "active" : null}`}
+        >
+          Активные
+        </button>
+        <button
+          onClick={() => handleFilterClick(TodoStates.COMPLETED)}
+          className={`filter-button ${filterBy === TodoStates.COMPLETED ? "active" : null}`}
+        >
+          Завершённые
+        </button>
+      </div>
       <button onClick={() => handleRemoveAllCompletedClick()}>
-        clear all COMPLETED
+        Удалить завершённые
       </button>
     </div>
   );

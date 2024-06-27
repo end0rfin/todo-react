@@ -16,14 +16,14 @@ export const App = () => {
   return (
     <div className={`todo-app-container ${theme}`}>
       <div className="todo-app">
-        <Header />
+        <Header toggleTheme={toggleTheme} />
         <Suspense fallback={suspenseFallback()}>
           <TodoProvider>
-            <TodoInputForm />
-            <TodoList />
-            <TodoFooter />
-            <button onClick={toggleTheme}>Сменить тему</button>
-            Текущая тема: {theme}
+            <div className="todo-content-container">
+              <TodoInputForm />
+              <TodoList />
+              <TodoFooter />
+            </div>
           </TodoProvider>
         </Suspense>
       </div>
