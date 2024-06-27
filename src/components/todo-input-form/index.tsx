@@ -1,6 +1,7 @@
 import React, { useId, ChangeEvent, FormEvent } from "react";
 import { useInput } from "../../hooks/useInput";
 import { ActionTypes, useTodoContext } from "../../hooks/useTodoContext";
+import { ArrowDown as ArrowDownIcon } from "../../assets/icons/arrow-down";
 import "./styles.scss";
 
 export const TodoInputForm = () => {
@@ -23,14 +24,17 @@ export const TodoInputForm = () => {
 
   return (
     <form className="todo-input-form" onSubmit={onSubmit}>
-      <input
-        className="todo-input text"
-        placeholder="What need to be done?"
-        value={inputValue}
-        onChange={onInputChange}
-        onBlur={onBlur}
-      />
-      {error && <span>{error}</span>}
+      <div className="todo-input-container">
+        <ArrowDownIcon />
+        <input
+          className="todo-input"
+          placeholder="Что должно быть сделано"
+          value={inputValue}
+          onChange={onInputChange}
+          onBlur={onBlur}
+        />
+        {error && <span>{error}</span>}
+      </div>
     </form>
   );
 };

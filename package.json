@@ -1,6 +1,6 @@
 {
   "name": "todo",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Test todo list. React, hooks.",
   "main": "index.js",
   "author": "Bludov Igor Sergeevich",

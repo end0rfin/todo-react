@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { ActionTypes, useTodoContext } from "../../hooks/useTodoContext";
+import {
+  ActionTypes,
+  TodoStates,
+  useTodoContext,
+} from "../../hooks/useTodoContext";
+import { Accept as AcceptIcon } from "../../assets/icons/accept";
+import "./styles.scss";
 
 export const TodoList = () => {
   const {
@@ -22,16 +28,29 @@ export const TodoList = () => {
       payload: { updateTodoId: todoId },
     });
 
+  const toggleTodoStateButton = (todoId: number, todoState: TodoStates) => {
+    return (
+      <button
+        className={`toggle-todo-state-button ${todoState}`}
+        onClick={() => handleToggleStateClick(todoId)}
+      >
+        {todoState === TodoStates.ACTIVE ? null : <AcceptIcon />}
+      </button>
+    );
+  };
+
   return (
-    <div>
-      {filteredTodoList.map((todo, index) => (
-        <div key={`${todo.id}-${index}`}>
-          #{todo.id} {todo.value} {todo.state}
-          <button onClick={() => handleToggleStateClick(todo.id)}>
-            Toggle state
+    <div className="todo-list">
+      {filteredTodoList.map((todo) => (
+        <div key={`${todo.id}`} className="todo-list-item">
+          {toggleTodoStateButton(todo.id, todo.state)}
+          {todo.value}
+          <button
+            onClick={() => handleRemoveTodoClick(todo.id)}
+            className="remove-todo-item"
+          >
+            удалить
           </button>
-          <button onClick={() => handleRemoveTodoClick(todo.id)}>Remove</button>
-          <hr />
         </div>
       ))}
     </div>
