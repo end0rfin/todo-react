@@ -24,7 +24,7 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: ["postcss-import"],
+                plugins: ["postcss-import", "postcss-advanced-variables"],
               },
             },
           },
