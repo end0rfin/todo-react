@@ -1,25 +1,16 @@
 @import "../../assets/styles/mixins.scss";
 
 .todo-footer {
-  font-size: 1rem;
-  font-weight: 100;
-  color:gray;
-  padding: 20px;
-  @apply flex justify-between;
+  color: var(--color-text-secondary);
+  @apply flex justify-between p-lg text-l-light;
 }
 
 .filter-button {
-  height: 24px;
-  padding: 0 8px;
-
-  font-size: 1rem;
-  color: gray;
-  font-weight: 100;
+  color: var(--color-text-secondary);
   font-style: normal;
-
-  @apply rounded-s border-0;
+  @apply rounded-s border-0 h-xl py-0 px-xs text-l-light;
 
   &.active {
-    @include border-toggle-todo-state-button;
+    @include border-2-primary;
   }
 }

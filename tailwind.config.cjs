@@ -21,6 +21,16 @@ module.exports = {
     container: {
       center: true,
     },
+    colors: {
+      primary: 'var(--color-primary)',
+      secondary: 'var(--color-secondary)',
+      negative: 'var(--color-negative)',
+      positive: 'var(--color-positive)',
+      'primary-background': 'var(--background-primary)',
+      'secondary-background': 'var(--background-secondary)',
+      'primary-text': 'var(--color-text-primary)',
+
+    },
     extend: {
       fontFamily: {
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
@@ -43,10 +53,10 @@ module.exports = {
           },
         ],
         xl: [
-          "1.125rem",
+          "1.5rem",
           {
-            // 18px 24px
-            lineHeight: "1.5rem",
+            // 24px 32px
+            lineHeight: "2rem",
             fontWeight: "400",
           },
         ],
@@ -56,6 +66,14 @@ module.exports = {
             // 16px 24px
             lineHeight: "1.5rem",
             fontWeight: "400",
+          },
+        ],
+        'l-light': [
+          "1rem",
+          {
+            // 16px 24px
+            lineHeight: "1.5rem",
+            fontWeight: "100",
           },
         ],
         m: [
@@ -83,9 +101,26 @@ module.exports = {
           },
         ],
       },
+      spacing: {
+        '6xl': '3rem', // 48px
+        '5xl': '2.5rem', // 40px
+        '4xl': '2.25rem', // 36px
+        '3xl': '2rem', // 32px
+        '2xl': '1.75rem', // 28px
+        xl: '1.5rem', // 24px
+        lg: '1.25rem', // 20px
+        m: '1rem', // 16px
+        s: '0.75rem', // 12px
+        xs: '0.5rem', // 8px
+        '2xs': '0.25rem', // 4px
+        '3xs': '0.125rem', // 2px
+      },
       boxShadow: {
         "todo-container": "-2px 2px 10px 2px #b8b5b5;",
       },
+      borderColor: {
+        primary: 'red',
+      }
     },
   },
   plugins: [],

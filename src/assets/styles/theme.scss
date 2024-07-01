@@ -1,0 +1,28 @@
+@import "colors.scss";
+
+.todo-app-container {
+  &.mood {
+    --color-primary: $mood-dark-blue;
+    --color-secondary: $mood-light-blue;
+    --color-negative: $mood-dark-red;
+    --color-positive: $mood-dark-blue;
+    --background-primary: $mood-light;
+    --background-secondary: $mood-light-blue;
+    --color-text-primary: $mood-brown;
+    --color-text-secondary: $mood-light-blue;
+    --color-h1-primary: $mood-purple;
+    --border-primary: $mood-gray;
+  }
+  &.warm {
+    --color-primary: $warm-gray;
+    --color-secondary: $warm-light;
+    --color-negative: $warm-red;
+    --color-positive: $warm-gray;
+    --background-primary: $warm-middle;
+    --background-secondary: $warm-light;
+    --color-text-primary: $warm-red-light;
+    --color-text-secondary: $warm-gray;
+    --color-h1-primary: $warm-purple;
+    --border-primary: $warm-gray;
+  }
+}

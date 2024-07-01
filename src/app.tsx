@@ -6,6 +6,7 @@ import { TodoInputForm } from "./components/todo-input-form";
 import { TodoList } from "./components/todo-list";
 import { useTheme } from "./hooks/useTheme";
 import { TodoProvider } from "./hooks/useTodoContext";
+import "./assets/styles/theme.scss";
 import "./assets/styles/index.scss";
 
 export const App = () => {

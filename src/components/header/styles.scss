@@ -1,5 +1,4 @@
 .todo-header {
-  color: purple;
-  text-align: center;
-  @apply text-2xl-thin;
+  color: var(--color-h1-primary);
+  @apply text-2xl-thin text-center;
 }
