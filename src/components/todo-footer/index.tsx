@@ -23,6 +23,7 @@ export const TodoFooter = () => {
       setActiveTodoCount(activeTodos.length);
     }
   }, [todoListStore]);
+  const commitAWithError = 'some value [] with error'
 
   const handleFilterClick = (state: TodoStates) =>
     dispatch({ type: ActionTypes.setFilterBy, payload: { filterBy: state } });

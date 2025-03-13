@@ -1,5 +1,4 @@
 @import "fonts.scss";
-@import "colors.scss";
 @import "mixins.scss";
 
 @tailwind base;
@@ -9,29 +8,20 @@
 html,
 body,
 #root {
-  margin: 0;
-  height: 100%;
+  @apply h-full m-0;
 }
 
 html {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 body {
   font-family: $font-family;
   line-height: 1.43;
-  background-color: darkgray;
 }
 
 .todo-app-container {
-  width: 100vw;
-  height: 100vh;
-  &.mood {
-    background-color: $mood-light;
-  }
-  &.warm {
-    background-color: $warm-light;
-  }
+  @apply w-screen h-screen bg-primary-background;
 }
 
 .todo-app {
@@ -40,23 +30,18 @@ body {
 }
 
 .todo-content-container {
-  position: relative;
-  text-align: center;
   background-color: white;
-  @apply shadow-todo-container;
-  @include border-todo-container;
+  @apply relative text-center shadow-todo-container;
+  @include border-1-primary;
 
   &:before, &:after {
     content: '';
     height: 10px;
 
-    position: absolute;
     bottom: -8px;
-    z-index: -1;
 
-    background-color: white;
-    @apply shadow-todo-container;
-    @include border-todo-container;
+    @apply absolute bg-secondary-background shadow-todo-container;
+    @include border-1-primary;
   }
 
   &:before {

@@ -1,47 +1,30 @@
 @import "../../assets/styles/mixins.scss";
 
 .todo-list-item {
-  display: flex;
-  align-items: center;
-  height: 55px;
-  gap: 10px;
-  padding: 0 16px;
-
-  font-size: 1.5em;
-  color: black;
-  font-weight: normal;
+  color: var(--color-text-primary);
   font-style: normal;
 
-  @include border-todo-list-item;
+  @apply flex items-center h-[55px] gap-s px-m py-0 text-l;
+  @include border-1-primary;
 
   .remove-todo-item {
-    display: none;
-    height: 24px;
-    padding: 0 8px;
-
-
-    font-size: 1rem;
-    color: gray;
-    font-weight: 100;
+    color: var(--color-text-secondary);
     font-style: normal;
 
-    @apply rounded-s;
-    @include border-toggle-todo-state-button;
+    @apply rounded-s text-l-light hidden px-xs py-0 h-xl;
+    @include border-2-primary;
   }
 
   &:hover {
     .remove-todo-item {
-      display: block;
+      @apply block;
     }
   }
 }
 
 .toggle-todo-state-button {
-  @include border-toggle-todo-state-button;
-  width: 24px;
-  height: 24px;
-  @apply rounded-3xl;
-
+  @apply rounded-3xl w-xl h-xl;
+  @include border-2-primary;
   &.COMPLETED {
     @apply border-0;
   }

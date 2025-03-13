@@ -13,6 +13,7 @@ export const TodoList = () => {
     dispatch,
   } = useTodoContext();
   const [filteredTodoList, setFilteredTodoList] = useState([]);
+  const renamedConst = 'some value [this must be removed in some commit] with error'
 
   useEffect(() => setFilteredTodoList(todoList), [todoList]);
 
