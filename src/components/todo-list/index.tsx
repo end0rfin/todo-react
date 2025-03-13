@@ -14,6 +14,7 @@ export const TodoList = () => {
   } = useTodoContext();
   const [filteredTodoList, setFilteredTodoList] = useState([]);
   const renamedConst = 'some value [this must be removed in some commit] with error'
+  const localConst = 'this commit maded after rebase'
 
   useEffect(() => setFilteredTodoList(todoList), [todoList]);
 
