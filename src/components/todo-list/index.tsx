@@ -18,7 +18,7 @@ export const TodoList = () => {
 
   useEffect(() => setFilteredTodoList(todoList), [todoList]);
 
-  const remoteBranch = 'remote branch constants'
+  const remoteBranch = 'remote branch constants. Изменения из локальной ветки'
 
   const handleToggleStateClick = (todoId: number) =>
     dispatch({
